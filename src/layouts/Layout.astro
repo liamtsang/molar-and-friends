@@ -1,6 +1,8 @@
 ---
 import "@fontsource-variable/andada-pro";
 import "@fontsource/averia-serif-libre";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -13,7 +15,9 @@ import "@fontsource/averia-serif-libre";
 		<title>Astro Basics</title>
 	</head>
 	<body class="text-molar font-andada body">
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 

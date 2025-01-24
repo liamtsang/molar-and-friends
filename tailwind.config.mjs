@@ -41,7 +41,9 @@ export default {
 					"text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bold leading-[80%] tracking-tight font-averia",
 				"heading-2":
 					"text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-averia font-bold tracking-tight",
-				body: "text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl",
+				body: "text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-medium",
+				"button-text":
+					"text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold",
 			},
 		},
 	},

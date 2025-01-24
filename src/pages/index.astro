@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import Block from "../components/Block.astro";
+import LeftCard from "../components/LeftCard.astro";
+import RightCard from "../components/RightCard.astro";
 ---
 
 <Layout>
-	<Header />
 	<Hero />
 	<section class="w-[calc((5/7)*100%)] max-w-[1200px] mx-auto space-y-24 mt-24">
-		<Block/>
+		<LeftCard/>
+		<RightCard/>
 	</section>
 </Layout>
