@@ -1,14 +1,63 @@
 ---
 ---
-<div class="text-molar bg-blueberry grid grid-cols-[3fr_2fr] max-h-[30rem] rounded-3xl relative">
- <img class="justify-self-start max-h-[inherit] rounded-l-[inherit]" src="/family.png"/>
- <button class="bg-bubblegum text-nightsky button-text rounded-lg absolute bottom-0 left-0 translate-y-[50%] translate-x-[50%] px-6 py-3">
- Your 1st Visit
- </button>
- <div class="px-16 pt-14 space-y-4 justify-self-center">
-  <h2 class="heading-2 break-keep whitespace-nowrap">Come Say Hi!</h2>
-  <p>
-   Join the thousands of families who've discovered why their children can't wait for their next dental visit. At Molar and Friends, we're creating the next generation of confident, healthy smiles. 
-  </p>
- </div>
+<div id="right-card" class="box-content text-molar bg-blueberry card  md:max-h-[30rem] rounded-3xl relative">
+  <div class="absolute right-[-50px] md:right-[45%] md:translate-x-[-25%] top-4 w-36">
+    <img id="award" class="opacity-[0] drop-shadow-md" width="100px" src="/smile_award.svg"/>
+    <img class="sparkles-1 opacity-0 absolute top-[-12px] right-9 rotate-[-15deg]" src="/sparkle.svg"/>
+    <img class="sparkles-2 opacity-0 absolute bottom-[24px] left-2 rotate-[-15deg]" width="16px" src="/sparkle.svg"/>
+  </div>
+  <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tr-none md:rounded-l-[inherit]" src="/family.png"/>
+  <button class="w-max bg-bubblegum text-nightsky button-text rounded-lg absolute bottom-0 right-[50%] translate-y-[50%] translate-x-[50%] md:right-[70%] md:translate-x-[25%] px-4 lg:px-6 py-3">
+  Your 1st Visit
+  </button>
+  <div id="card-content" class="px-6 pt-4 pb-14 md:px-16 md:pt-14 space-y-4 justify-self-center">
+    <h2 class="heading-2 break-keep whitespace-nowrap">Come Say Hi!</h2>
+    <p class="body">
+     Join the thousands of families who've discovered why their children can't wait for their next dental visit. At Molar and Friends, we're creating the next generation of confident, healthy smiles. 
+    </p>
+  </div>
 </div>
+
+<script>
+import { animate, inView } from "motion";
+
+const sequence = [
+  [ ".sparkles-1", { opacity: [0,1,0], scale: [0.2, 1], rotate: -15 }, {duration: 1.25} ],
+  [ ".sparkles-2", { opacity: [0,1,0], scale: [0.2, 1], rotate: -15 }, {duration: 1.25} ],
+]
+
+inView("#award", (e) => {
+  animate("#award", { rotate: -15, opacity: 1, scale: [0.4, 1]}, {duration: 0.75})
+  animate(sequence, {repeat: Infinity})
+})
+
+</script>
+
+<style>
+.card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: "image content";
+}
+
+.card-reversed {
+  grid-template-areas: "content image";
+}
+
+.card-image {
+  grid-area: image;
+}
+
+.card-content {
+  grid-area: content;
+}
+
+@media (max-width: 768px) {
+  .card, .card-reversed {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "image"
+      "content";
+  }
+}
+</style>

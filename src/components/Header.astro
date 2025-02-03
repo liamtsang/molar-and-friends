@@ -1,14 +1,114 @@
 ---
+const currentPath = Astro.url.pathname;
 ---
-<header class="w-full h-32 grid grid-cols-3">
-  <div/>
-  <img class="max-h-full justify-self-center p-3" src="/Logo.svg"/>
-  <div class="flex flex-row justify-end items-center space-x-4 pr-4">
-    <button class="text-4xl font-averia bg-stoplight px-3 py-2 rounded-lg">Contact Us</button>
-    <nav>
-      <svg class="text-stoplight" width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+
+<div class="drop-shadow-sm sticky top-0 w-full z-[100] bg-[rgba(255,255,255,1.9)]">
+  <header class="w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto h-20 md:h-24 flex flex-cols justify-between gap-8">
+    <div class="flex flex-cols gap-8">
+      <a href="/" class="h-20 md:h-24">
+        <img class="h-full max-h-full justify-self-start pt-3 pb-3.5" src="/Logo.svg"/>
+      </a>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex text-lg font-semibold text-teal tracking-tight flex-row justify-self-start items-center space-x-4 pr-4">
+        <a href="/" class={`${currentPath==='/' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Home
+        </a>
+        <a href="/about" class={`${currentPath==='/about' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          About
+        </a>
+        <a href="/contact" class={`${currentPath==='/contact' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Contact
+        </a>
+      </div>
+    </div>
+    <!-- Desktop CTA Button -->
+    <a href="/test" class="hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full">
+      JOIN WAITLIST
+    </a>
+    
+    <!-- Mobile Navigation Button -->
+    <button 
+      id="mobile-menu-button"
+      class="md:hidden self-center p-2" 
+      aria-label="Toggle menu"
+    >
+      <svg 
+        class="w-6 h-6 text-teal" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path 
+          id="hamburger"
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+        <path 
+          id="close"
+          class="hidden"
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M6 18L18 6M6 6l12 12"
+        />
       </svg>
+    </button>
+  </header>
+
+  <!-- Mobile Menu -->
+  </div>
+<div 
+    id="mobile-menu" 
+    class="md:hidden fixed z-[5] top-[0] left-0 w-full bg-[#FFFFFF] shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out"
+  >
+    <nav class="w-[calc((6/7)*100%)] mx-auto flex flex-col py-4 space-y-4">
+      <a 
+        href="/" 
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        Home
+      </a>
+      <a 
+        href="/about"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/about' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        About
+      </a>
+      <a 
+        href="/contact"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/contact' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        Contact
+      </a>
+      <a 
+        href="/test"
+        class="text-lg font-semibold bg-teal text-white px-4 py-2 rounded-full text-center mx-3"
+      >
+        JOIN WAITLIST
+      </a>
     </nav>
   </div>
-</header>
+
+<style>
+  /* Add this class to show the menu */
+  .menu-open {
+    transform: translateY(5rem) !important;
+  }
+</style>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger');
+  const closeIcon = document.getElementById('close');
+
+  if (menuButton && mobileMenu && hamburgerIcon && closeIcon) {
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('menu-open');
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+</script>
