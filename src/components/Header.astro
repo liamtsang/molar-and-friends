@@ -16,13 +16,13 @@ const currentPath = Astro.url.pathname;
         <a href="/about" class={`${currentPath==='/about' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
           About
         </a>
-        <a href="/contact" class={`${currentPath==='/contact' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
-          Contact
+        <a href="/your-first-visit" class={`${currentPath==='/your-first-visit' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Your First Visit
         </a>
       </div>
     </div>
     <!-- Desktop CTA Button -->
-    <a href="/test" class="hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full">
+    <a href="/test" class="hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
       JOIN WAITLIST
     </a>
     
