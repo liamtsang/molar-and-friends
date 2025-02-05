@@ -3,17 +3,16 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="pt-20 pt:h-24 pb-72 relative bg-blueberry text-center">
+  <section class="pt-20 pt:h-24 pb-32 md:pb-72 relative bg-blueberry text-center">
     <div class="w-full">
       <div
         class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8"
       >
         <h1 class="drop-shadow-sm heading-1">About</h1>
-        <!-- <p class="drop-shadow-sm bg-black font-semibold mx-auto max-w-xs md:max-w-2xl">Join the thousands of families who've discovered why their children can't wait for their next dental visit. At Molar and Friends, we're creating the next generation of confident, healthy smiles. </p> -->
       </div>
     </div>
   </section>
-  <section class="max-w-dvw pb-96 overflow-x-clip overflow-y-visible">
+  <section class="max-w-dvw pb-44 md:pb-96 overflow-x-clip overflow-y-visible">
     <div
       class="relative mx-auto w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px]"
     >
@@ -67,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="overflow-x-clip bg-forest pt-32 pb-48">
+  <section class="overflow-x-clip bg-forest pt-32 pb-96 md:pb-48">
     <div
       id="george"
       class="flex flex-col md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
@@ -146,10 +145,10 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="overflow-x-clip bg-blueberry pt-32 pb-48">
+  <section class="overflow-x-clip bg-blueberry pt-32 pb-96 md:pb-48">
     <div
       id="chloe"
-      class="flex flex-col md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
+      class="flex flex-col-reverse md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
     >
       <div id="card_chloe_stack" class="cursor-pointer relative w-full">
         <div
@@ -226,7 +225,7 @@ import Layout from "../layouts/Layout.astro";
   <section class="pt-32 pb-32">
     <div
       id="our_story"
-      class="grid grid-rows-[1fr_1fr] lg:grid-rows-none lg:grid-cols-[1fr_1fr] gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
+      class="grid grid-rows-[1fr_max-content] lg:grid-rows-none lg:grid-cols-[1fr_1fr] gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
     >
       <div
         id="our_story_left"
@@ -249,7 +248,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
   <section>
-    <a href="/waitlist" class="mb-24 w-fit mx-auto hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
+    <a href="/waitlist" class="mb-24 w-fit mx-auto block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
       JOIN WAITLIST
     </a>
   </section>
