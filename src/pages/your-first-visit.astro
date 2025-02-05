@@ -13,7 +13,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
   <section class="pb-[25%]">
-    <img src="/forest_scene.svg" class="rounded-lg absolute left-[50%] translate-y-[-50%] w-[90%] translate-x-[-50%]"/>
+    <img id="forest_scene" src="/forest_scene.svg" class="rounded-lg absolute left-[50%] translate-y-[-50%] w-[90%] translate-x-[-50%]"/>
   </section>
   <section class="space-y-16">
     <div class="text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
@@ -70,3 +70,11 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
+
+<script>
+import { animate, inView } from "motion";
+
+inView("#forest_scene", (e) => {
+  animate("#forest_scene", { opacity: [0.5,1], scale: [0.2, 1], y:["-50%"], x:["-50%"]}, {duration: 0.5})
+})
+</script>

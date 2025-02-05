@@ -1,22 +1,376 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
+
 <Layout>
-  <section class="pt-20 pt:h-24 pb-[25%] relative bg-forest text-center">
+  <section class="pt-20 pt:h-24 pb-72 relative bg-blueberry text-center">
     <div class="w-full">
-      <div class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
-        <h1 class="drop-shadow-sm heading-1 ">About</h1>
-        <p class="drop-shadow-sm bg-black font-semibold mx-auto max-w-xs md:max-w-2xl">Join the thousands of families who've discovered why their children can't wait for their next dental visit. At Molar and Friends, we're creating the next generation of confident, healthy smiles. </p>
+      <div
+        class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8"
+      >
+        <h1 class="drop-shadow-sm heading-1">About</h1>
+        <!-- <p class="drop-shadow-sm bg-black font-semibold mx-auto max-w-xs md:max-w-2xl">Join the thousands of families who've discovered why their children can't wait for their next dental visit. At Molar and Friends, we're creating the next generation of confident, healthy smiles. </p> -->
       </div>
     </div>
   </section>
-  <section class="pb-[25%]">
-    <img src="/forest_scene.svg" class="rounded-lg absolute left-[50%] translate-y-[-50%] w-[90%] translate-x-[-50%]"/>
-  </section>
-  <section class="">
-    <div class="text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
-      <h2 class="heading-2">Our story</h2>
-      <p class="body">Hello! We are Dr. George and Dr. Chloe,  a husband and wife pediatric dentist duo who are passionate about taking care of our community. We first met as dental students at the Harvard School of Dental Medicine while coordinating the school's annual Give Kids a Smile event. What started as a friendship grew into a relationship that was built on our shared passion for life-long learning, oral health education, community engagement, and caring for children and families. We grew up on opposite coasts, met in Boston, fell in love, and now call Central Ohio our home. When not taking care of our patients, we are exploring new restaurants and cafes around town, chasing our toddler Harrison around the kitchen island, and taking long walks in our neighborhood with our two rescue pups, Poppy and Luna. </p>
+  <section class="max-w-dvw pb-96 overflow-x-clip overflow-y-visible">
+    <div
+      class="relative mx-auto w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px]"
+    >
+      <img
+        id="fairy_poster"
+        src="/fairy_poster.png"
+        class="z-[5] w-[40%] drop-shadow-lg absolute"
+      />
+      <img
+        id="lost_poster"
+        src="/lost_poster.png"
+        class="w-[40%] drop-shadow-lg absolute"
+      />
     </div>
   </section>
+  <section class="pb-32">
+    <div
+      id="our_story"
+      class="grid grid-rows-[1fr_1fr] lg:grid-rows-none lg:grid-cols-[1fr_1fr] gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((6/7)*100%)] mx-auto"
+    >
+      <div
+        id="our_story_left"
+        class="flex justify-center lg:justify-end items-center"
+      >
+        <img src="/family.png" class="rounded-lg" />
+      </div>
+      <div id="our_story_right" class="max-w-[800px]">
+        <h2 class="heading-2 pb-4">Our story</h2>
+        <div class="space-y-2">
+          <p class="body">
+            Hello! We are Dr. George and Dr. Chloe, a husband and wife pediatric
+            dentist duo who are passionate about taking care of our community.
+            <p></p>
+            <p class="body">
+              We first met as dental students at the Harvard School of Dental
+              Medicine while coordinating the school's annual Give Kids a Smile
+              event. What started as a friendship grew into a relationship that
+              was built on our shared passion for life-long learning, oral
+              health education, community engagement, and caring for children
+              and families. We grew up on opposite coasts, met in Boston, fell
+              in love, and now call Central Ohio our home.
+            </p>
+            <p class="body">
+              When not taking care of our patients, we are exploring new
+              restaurants and cafes around town, chasing our toddler Harrison
+              around the kitchen island, and taking long walks in our
+              neighborhood with our two rescue pups, Poppy and Luna.
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="overflow-x-clip bg-forest pt-32 pb-48">
+    <div
+      id="george"
+      class="flex flex-col md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
+    >
+      <div
+        id="card_george_left"
+        class="flex justify-center lg:justify-end items-center"
+      >
+        <img src="/family.png" class="w-full h-full object-cover rounded-lg" />
+      </div>
+      <div id="card_george_stack" class="cursor-pointer relative w-full">
+        <div
+          id="card1_george_right"
+          class="drop-shadow-md bg-sunshine absolute w-full rounded-lg bg-molar px-10 py-6"
+        >
+          <h2 class="text-4xl font-semibold pb-4">Fun Facts</h2>
+          <ul class="space-y-2">
+            <li>I was born and raised in Seattle and California</li>
+            <li>
+              My favorite childhood memory: Staying up all night to finally beat
+              Rampage, the N64 video game, with my cousin
+            </li>
+            <li>
+              I love playing pop-punk music on my electric guitar and jamming
+              with my son Harrison
+            </li>
+            <li>
+              My favorite video game is The Legend of Zelda: Ocarina of Time
+            </li>
+            <li>My first job was teaching swim lessons to little kiddos</li>
+          </ul>
+        </div>
+        <div
+          id="card2_george_right"
+          class="drop-shadow-md absolute w-full rounded-lg bg-molar px-10 py-6"
+        >
+          <h2 class="text-4xl font-semibold pb-4">Dr. George Chen</h2>
+          <ul class="space-y-2">
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                University of California, San Diego
+              </div>
+              <p class="pl-8">B.S. Biochemistry and Cell Biology</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                Harvard School of Dental Medicine
+              </div>
+              <p class="pl-8">Doctor of Dental Medicine</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                Boston Children's Hospital, Harvard School of Dental Medicine
+              </div>
+              <p class="pl-8">Certificate in Pediatric Dentistry</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold pl-8">
+                Board Certification:<br /> American Board of Pediatric Dentistry
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="overflow-x-clip bg-blueberry pt-32 pb-48">
+    <div
+      id="chloe"
+      class="flex flex-col md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
+    >
+      <div id="card_chloe_stack" class="cursor-pointer relative w-full">
+        <div
+          id="card1_chloe_left"
+          class="drop-shadow-md bg-sunshine absolute w-full rounded-lg bg-molar px-10 py-6"
+        >
+          <h2 class="text-4xl font-semibold pb-4">Fun Facts</h2>
+          <ul class="space-y-2">
+            <li>I was born and raised in New York City and New Jersey </li>
+            <li>
+              My favorite childhood memory: Rollerblading around the streets of New York City with my family 
+            </li>
+            <li>
+              I memorized 200 digits of Pi in middle school for Pi Day
+            </li>
+            <li>
+              I enjoy growing indoor plants from plant cuttings
+            </li>
+            <li>I am currently binge-watching all 21 seasons of Grey's Anatomy</li>
+          </ul>
+        </div>
+        <div
+          id="card2_chloe_left"
+          class="drop-shadow-md absolute w-full rounded-lg bg-molar px-10 py-6"
+        >
+          <h2 class="text-4xl font-semibold pb-4">Dr. Chloe Wong</h2>
+          <ul class="space-y-2">
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                Tufts University
+              </div>
+              <p class="pl-8">B.A. Child Development, B.A. Community Health</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                  Harvard School of Dental Medicine
+              </div>
+              <p class="pl-8">Doctor of Dental Medicine</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold">
+                <img
+                  src="/education_icon.png"
+                  class="w-6 max-w-6 mix-blend-multiply object-contain pt-1 object-top"
+                />
+                Nationwide Children's Hospital, The Ohio State University
+              </div>
+              <p class="pl-8">Certificate in Pediatric Dentistry, M.S</p>
+            </li>
+            <li>
+              <div class="flex flex-row gap-2 font-semibold pl-8">
+                Board Certification:<br /> American Board of Pediatric Dentistry
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="card_chloe_right"
+        class="flex justify-center lg:justify-end items-center"
+      >
+        <img src="/family.png" class="w-full h-full object-cover rounded-lg" />
+      </div>
+    </div>
+  </section>
+  <section class="pt-32 pb-32">
+    <div
+      id="our_story"
+      class="grid grid-rows-[1fr_1fr] lg:grid-rows-none lg:grid-cols-[1fr_1fr] gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
+    >
+      <div
+        id="our_story_left"
+        class="flex justify-center lg:justify-end items-center"
+      >
+        <img src="/family.png" class="rounded-lg" />
+      </div>
+      <div id="our_story_right" class="max-w-[800px]">
+        <h2 class="heading-2 pb-4">Our Office</h2>
+        <div class="space-y-2">
+          <p class="body">
+            We've designed our office to be a fun, comfortable, and safe place for your child to call their dental home. 
+            <p></p>
+            <p class="body">
+              Office Tour (Coming Soon)
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <a href="/test" class="w-fit mx-auto hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
+      JOIN WAITLIST
+    </a>
+  </section>
 </Layout>
+
+<script>
+  import { animate, inView, press } from "motion";
+  let george_card_state = "closed";
+  let chloe_card_state = "closed";
+
+  inView("#fairy_poster", (e) => {
+    animate(
+      "#fairy_poster",
+      {
+        rotate: -2,
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        y: ["-40%"],
+        left: ["100%", "52%"],
+      },
+      { duration: 0.75 }
+    );
+    animate(
+      "#lost_poster",
+      {
+        rotate: 5,
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        y: ["-50%"],
+        right: ["100%", "52%"],
+      },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#our_story", (e) => {
+    animate(
+      "#our_story_left",
+      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#our_story_right",
+      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#card_george_stack", (e) => {
+    animate(
+      "#card_george_left",
+      { opacity: [1], scale: [1], rotate: [-1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card2_george_right",
+      { opacity: [1], scale: [1], rotate: [-2], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card1_george_right",
+      { opacity: [1], scale: [0.98], rotate: [3], x: ["100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#card_chloe_stack", (e) => {
+    animate(
+      "#card_chloe_right",
+      { opacity: [1], scale: [1], rotate: [1], x: ["100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card2_chloe_left",
+      { opacity: [1], scale: [1], rotate: [2], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card1_chloe_left",
+      { opacity: [1], scale: [0.98], rotate: [-3], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  press("#card_george_stack", (e) => {
+    if (george_card_state === "closed") {
+      animate(
+        "#card2_george_right",
+        { scale: [1], x: [0, "120%"] },
+        { duration: 0.75 }
+      );
+      animate("#card1_george_right", { scale: [0.98, 1] }, { duration: 0.75 });
+      george_card_state = "open";
+    } else {
+      animate(
+        "#card2_george_right",
+        { scale: [1], x: ["120%", 0] },
+        { duration: 0.75 }
+      );
+      animate("#card1_george_right", { scale: [1, 0.98] }, { duration: 0.75 });
+      george_card_state = "closed";
+    }
+  });
+
+  press("#card_chloe_stack", (e) => {
+    if (chloe_card_state === "closed") {
+      animate(
+        "#card2_chloe_left",
+        { scale: [1], x: [0, "-120%"] },
+        { duration: 0.75 }
+      );
+      animate("#card1_chloe_left", { scale: [0.98, 1] }, { duration: 0.75 });
+      chloe_card_state = "open";
+    } else {
+      animate(
+        "#card2_chloe_left",
+        { scale: [1], x: ["-120%", 0] },
+        { duration: 0.75 }
+      );
+      animate("#card1_chloe_left", { scale: [1, 0.98] }, { duration: 0.75 });
+      chloe_card_state = "closed";
+    }
+  });
+</script>
