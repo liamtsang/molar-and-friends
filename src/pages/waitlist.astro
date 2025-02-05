@@ -1,16 +1,49 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const { env } = Astro.locals.runtime;
 
 if (Astro.request.method === "POST") {
 	try {
 		const data = await Astro.request.formData();
-		const name = data.get("username");
-		const email = data.get("email");
-		const password = data.get("password");
-		console.log(data);
+
+		// Extract form data
+		const childName = data.get("name")?.toString() || "";
+		const childAge = Number.parseInt(data.get("age")?.toString() || "0");
+		const insurance = data.get("insurance")?.toString() || "";
+		const parentName = data.get("parent name")?.toString() || "";
+		const email = data.get("email")?.toString() || "";
+		const message = data.get("message")?.toString() || "";
+		const submissionDate = new Date().toISOString();
+
+		// Insert data into the database
+		await env.DB.prepare(
+			`INSERT INTO waitlist (
+        child_name,
+        child_age,
+        insurance,
+        parent_name,
+        email,
+        message,
+        submission_date
+      ) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+		)
+			.bind(
+				childName,
+				childAge,
+				insurance,
+				parentName,
+				email,
+				message,
+				submissionDate,
+			)
+			.run();
+
+		// Redirect to a success page or show success message
+		return Astro.redirect("/success");
 	} catch (error) {
 		if (error instanceof Error) {
 			console.error(error.message);
+			// Handle error appropriately - maybe set an error message to display
 		}
 	}
 }
