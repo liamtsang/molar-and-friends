@@ -3,7 +3,38 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div class="drop-shadow-sm sticky top-0 w-full z-[100] bg-[rgba(255,255,255,1.9)]">
-  <header class="w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto h-20 md:h-24 flex flex-cols justify-between gap-8">
+ <div 
+    id="mobile-menu" 
+    class="md:hidden absolute z-[5] top-[0] left-0 w-dvw bg-[#FFFFFF] shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out"
+  >
+    <nav class="w-[calc((6/7)*100%)] mx-auto flex flex-col py-4 space-y-4">
+      <a 
+        href="/" 
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        Home
+      </a>
+      <a 
+        href="/about"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/about' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        About
+      </a>
+      <a 
+        href="/your-first-visit"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/your-first-visit' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        Your First Visit
+      </a>
+      <a 
+        href="/waitlist"
+        class="text-lg font-semibold bg-teal text-white px-4 py-2 rounded-full text-center mx-3"
+      >
+        JOIN WAITLIST
+      </a>
+    </nav>
+  </div>
+  <header class="relative z-[100] bg-[#FFFFFF] w-[calc((6/7)*100%)] z-[6] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto h-20 md:h-24 flex flex-cols justify-between gap-8">
     <div class="flex flex-cols gap-8">
       <a href="/" class="h-20 md:h-24">
         <img class="h-full max-h-full justify-self-start pt-3 pb-3.5" src="/Logo.svg"/>
@@ -58,39 +89,7 @@ const currentPath = Astro.url.pathname;
   </header>
 
   <!-- Mobile Menu -->
-  </div>
-<div 
-    id="mobile-menu" 
-    class="md:hidden fixed z-[5] top-[0] left-0 w-dvw bg-[#FFFFFF] shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out"
-  >
-    <nav class="w-[calc((6/7)*100%)] mx-auto flex flex-col py-4 space-y-4">
-      <a 
-        href="/" 
-        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
-      >
-        Home
-      </a>
-      <a 
-        href="/about"
-        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/about' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
-      >
-        About
-      </a>
-      <a 
-        href="/your-first-visit"
-        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/your-first-visit' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
-      >
-        Your First Visit
-      </a>
-      <a 
-        href="/waitlist"
-        class="text-lg font-semibold bg-teal text-white px-4 py-2 rounded-full text-center mx-3"
-      >
-        JOIN WAITLIST
-      </a>
-    </nav>
-  </div>
-
+ 
 <style>
   /* Add this class to show the menu */
   .menu-open {

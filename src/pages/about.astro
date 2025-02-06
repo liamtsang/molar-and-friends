@@ -73,14 +73,14 @@ import Layout from "../layouts/Layout.astro";
     >
       <div
         id="card_george_left"
-        class="flex justify-center lg:justify-end items-center"
+        class="flex justify-center lg:justify-end items-center translate-x-[-100%]"
       >
         <img src="/family.png" class="w-full h-full object-cover rounded-lg" />
       </div>
       <div id="card_george_stack" class="cursor-pointer relative w-full">
         <div
           id="card1_george_right"
-          class="drop-shadow-md bg-sunshine absolute w-full rounded-lg bg-molar px-10 py-6"
+          class="drop-shadow-md bg-sunshine absolute w-full rounded-lg bg-molar px-10 py-6 translate-x-[100%]"
         >
           <h2 class="text-4xl font-semibold pb-4">Fun Facts</h2>
           <ul class="space-y-2">
@@ -101,7 +101,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div
           id="card2_george_right"
-          class="drop-shadow-md absolute w-full rounded-lg bg-molar px-10 py-6"
+          class="drop-shadow-md absolute w-full rounded-lg bg-molar px-10 py-6 translate-x-[-100%]"
         >
           <h2 class="text-4xl font-semibold pb-4">Dr. George Chen</h2>
           <ul class="space-y-2">
@@ -297,7 +297,7 @@ import Layout from "../layouts/Layout.astro";
     );
   });
 
-  inView("#card_george_stack", (e) => {
+  inView("#george", (e) => {
     animate(
       "#card_george_left",
       { opacity: [1], scale: [1], rotate: [-1], x: ["-100%", "0"] },
@@ -315,7 +315,7 @@ import Layout from "../layouts/Layout.astro";
     );
   });
 
-  inView("#card_chloe_stack", (e) => {
+  inView("#chloe", (e) => {
     animate(
       "#card_chloe_right",
       { opacity: [1], scale: [1], rotate: [1], x: ["100%", "0"] },
@@ -323,7 +323,7 @@ import Layout from "../layouts/Layout.astro";
     );
     animate(
       "#card2_chloe_left",
-      { opacity: [1], scale: [1], rotate: [2], x: ["-100%", "0"] },
+      { opacity: [1], scale: [1], rotate: [2], x: ["100%", "0"] },
       { duration: 0.75 }
     );
     animate(
