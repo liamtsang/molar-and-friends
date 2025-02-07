@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="pt-20 pt:h-24 pb-32 md:pb-72 relative bg-blueberry text-center">
+  <section class="pt-20 pt:h-24 pb-32 md:pb-52 lg:pb-72 relative bg-blueberry text-center">
     <div class="w-full">
       <div
         class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8"
@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="max-w-dvw pb-44 md:pb-96 overflow-x-clip overflow-y-visible">
+  <section class="max-w-dvw pb-44 md:pb-64 lg:pb-96 overflow-x-clip overflow-y-visible">
     <div
       class="relative mx-auto w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px]"
     >
@@ -28,10 +28,10 @@ import Layout from "../layouts/Layout.astro";
       />
     </div>
   </section>
-  <section class="pb-32">
+  <section class="pb-24 lg:pb-32">
     <div
       id="our_story"
-      class="grid grid-rows-[1fr_1fr] lg:grid-rows-none lg:grid-cols-[1fr_1fr] gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((6/7)*100%)] mx-auto"
+      class="flex flex-col lg:flex-row gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
     >
       <div
         id="our_story_left"
@@ -39,7 +39,7 @@ import Layout from "../layouts/Layout.astro";
       >
         <img src="/family.png" class="rounded-lg" />
       </div>
-      <div id="our_story_right" class="max-w-[800px]">
+      <div id="our_story_right" class="lg:max-w-[800px]">
         <h2 class="heading-2 pb-4">Our story</h2>
         <div class="space-y-2">
           <p class="body">
@@ -66,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="overflow-x-clip bg-forest pt-32 pb-96 md:pb-48">
+  <section class="overflow-x-clip bg-forest pt-32 pb-[34rem] md:pb-48">
     <div
       id="george"
       class="flex flex-col md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
@@ -145,7 +145,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="overflow-x-clip bg-blueberry pt-32 pb-96 md:pb-48">
+  <section class="overflow-x-clip bg-blueberry pt-32 pb-[34rem] md:pb-48">
     <div
       id="chloe"
       class="flex flex-col-reverse md:flex-row gap-8 select-none text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto"
