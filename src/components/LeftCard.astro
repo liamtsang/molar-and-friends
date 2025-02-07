@@ -3,7 +3,7 @@
 <div id="left-card" class="bg-sunshine card card-reversed text-left md:max-h-[30rem] rounded-3xl relative">
   <svg 
     id="waving-tooth" 
-    class="absolute top-[calc(100vw*(6/7))] right-[-10px] w-28 md:left-[54%] md:translate-x-[-100%] md:top-4 md:w-36 drop-shadow-md" 
+    class="z-[10] absolute top-[calc(100vw*(6/7))] right-[-10px] w-28 md:left-[54%] md:translate-x-[-100%] md:top-4 md:w-36 drop-shadow-md" 
     width="179" height="189" viewBox="0 0 199 189" fill="none" 
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -23,8 +23,13 @@
     </svg>
   </svg>
 
-  <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" src="/family.png"/>
-  <a href="/about" class="w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:left-[66.666%] md:translate-x-[25%] px-4 lg:px-6 py-3">
+  <div class="relative justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]">
+    <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" src="/family.png"/>
+    <a href="/about" class="hidden md:block w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-y-[50%] md:left-[50%] md:translate-x-[-50%] px-4 lg:px-6 py-3">
+      About Us
+    </a>
+  </div>
+  <a href="/about" class="w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:hidden px-4 lg:px-6 py-3">
     About Us
   </a>
   <div id="card-content" class="text-nightsky px-6 pt-4 pb-14 md:px-16 md:pt-14 space-y-4 justify-self-center">
