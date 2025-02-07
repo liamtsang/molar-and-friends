@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+const { env } = Astro.locals.runtime;
+
+// Fetch all entries from the database
+const { results: entries } = await env.DB.prepare(
+  `SELECT 
+    id,
+    child_name,
+    child_age,
+    insurance,
+    parent_name,
+    email,
+    message,
+    submission_date,
+    created_at
+   FROM waitlist 
+   ORDER BY submission_date DESC`
+).all();
+
+// Format date for display
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
+---
+<Layout bgColor="teal">
+  <div class="w-full">
+    <main class="pt-16 font-instrument w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="font-bold text-3xl">Waitlist Entries</h1>
+        <span class="text-lg">Total Entries: {entries.length}</span>
+      </div>
+
+      <div class="overflow-x-auto bg-nightsky rounded-lg shadow">
+        <table class="w-full table-auto">
+          <thead class="bg-opacity-50 border-b border-molar">
+            <tr>
+              <th class="px-4 py-3 text-left">Submission Date</th>
+              <th class="px-4 py-3 text-left">Child's Name</th>
+              <th class="px-4 py-3 text-left">Age</th>
+              <th class="px-4 py-3 text-left">Insurance</th>
+              <th class="px-4 py-3 text-left">Parent's Name</th>
+              <th class="px-4 py-3 text-left">Email</th>
+              <th class="px-4 py-3 text-left">Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {entries.map((entry) => (
+              <tr class="border-b border-molar/30 hover:bg-molar/10">
+                <td class="px-4 py-3">{formatDate(entry.submission_date)}</td>
+                <td class="px-4 py-3">{entry.child_name}</td>
+                <td class="px-4 py-3">{entry.child_age}</td>
+                <td class="px-4 py-3">{entry.insurance}</td>
+                <td class="px-4 py-3">{entry.parent_name}</td>
+                <td class="px-4 py-3">
+                  <a 
+                    href={`mailto:${entry.email}`} 
+                    class="text-stoplight hover:underline"
+                  >
+                    {entry.email}
+                  </a>
+                </td>
+                <td class="px-4 py-3">
+                  <div class="max-w-xs truncate" title={entry.message}>
+                    {entry.message || '-'}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {entries.length === 0 && (
+        <div class="text-center py-8 bg-nightsky rounded-lg">
+          <p class="text-xl">No entries found</p>
+        </div>
+      )}
+    </main>
+  </div>
+</Layout>
