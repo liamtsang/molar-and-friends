@@ -1,13 +1,18 @@
 ---
 ---
 <div id="right-card" class="box-content text-molar bg-blueberry card  md:max-h-[30rem] rounded-3xl relative">
-  <div class="absolute right-[-50px] md:right-[45%] md:translate-x-[-25%] top-4 w-36">
+  <div class="z-[10] absolute right-[-50px] md:right-[45%] md:translate-x-[-25%] top-4 w-36">
     <img id="award" class="opacity-[0] drop-shadow-md" width="100px" src="/smile_award.svg"/>
     <img class="sparkles-1 opacity-0 absolute top-[-12px] right-9 rotate-[-15deg]" src="/sparkle.svg"/>
     <img class="sparkles-2 opacity-0 absolute bottom-[24px] left-2 rotate-[-15deg]" width="16px" src="/sparkle.svg"/>
   </div>
-  <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tr-none md:rounded-l-[inherit]" src="/family.png"/>
-  <button class="w-max bg-bubblegum text-nightsky button-text rounded-lg absolute bottom-0 right-[50%] translate-y-[50%] translate-x-[50%] md:right-[70%] md:translate-x-[25%] px-4 lg:px-6 py-3">
+  <div class="relative rounded-t-[inherit] md:rounded-tr-none md:rounded-l-[inherit]">
+    <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tr-none md:rounded-l-[inherit]" src="/family.png"/>
+    <button class="hidden md:block w-max bg-bubblegum text-nightsky button-text rounded-lg absolute bottom-0 translate-y-[50%] md:right-[50%] md:translate-x-[50%] px-4 lg:px-6 py-3">
+    Your 1st Visit
+    </button>
+  </div>
+  <button class="block md:hidden w-max bg-bubblegum text-nightsky button-text rounded-lg absolute bottom-0 right-[50%] translate-y-[50%] translate-x-[50%] md:right-[70%] md:translate-x-[25%] px-4 lg:px-6 py-3">
   Your 1st Visit
   </button>
   <div id="card-content" class="px-6 pt-4 pb-14 md:px-16 md:pt-14 space-y-4 justify-self-center">

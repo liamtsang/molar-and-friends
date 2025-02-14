@@ -48,36 +48,18 @@ if (Astro.request.method === "POST") {
 	}
 }
 ---
-<Layout bgColor="teal">
+<Layout bgColor="">
  <div class="w-full">
   <main class="pt-16 font-instrument w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto">
-    <h1 class="font-bold pb-4">Join Waitlist</h1>
-    <form method="POST" class="grid grid-cols-1 md:grid-cols-[max-content_1fr] gap-x-8 gap-y-2 pb-8">
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Child's Name
-        <input class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="text" name="name" required />
-      </label>
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Child's Age
-        <input class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="number" name="age" required />
-      </label>
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Child's Dental Insurance
-        <input class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="text" name="insurance" required />
-      </label>
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Parent/ Guardian's Name
-        <input class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="text" name="parent name" required />
-      </label>
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Email Address
-        <input class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="email" name="email" required />
-      </label>
-      <label class="col-span-2 grid grid-cols-[subgrid] grid-gap-inherit">
-        Message
-        <textarea class="pl-1 outline outline-[0px] outline-molar rounded-md bg-nightsky" type="text" name="message" />
-      </label>
-      <button class="w-fit bg-stoplight text-molar px-2 md:py-1 md:px-3 rounded-md font-semibold text-lg md:text-2xl">Submit</button>
+    <h1 class="text-nightsky font-bold text-2xl pb-4">Join Waitlist</h1>
+    <form method="POST" class="text-nightsky grid grid-cols-1 gap-x-8 gap-y-3 pb-8">
+      <input placeholder="Child's Name" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="text" name="name" required />
+      <input placeholder="Child's Age" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="number" name="age" required />
+      <input placeholder="Child's Dental Insurance" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="text" name="insurance" required />
+      <input placeholder="Parent / Gaurdian Name" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="text" name="parent name" required />
+      <input placeholder="Email Address" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="email" name="email" required />
+      <textarea placeholder="Message (optional)" class="pl-1 py-1 outline outline-[1px] outline-nightsky rounded-md bg-transparent" type="text" name="message" />
+      <button class="mt-1 w-fit bg-stoplight text-molar px-2 md:py-1 md:px-3 rounded-xl font-semibold text-lg md:text-2xl">Submit</button>
     </form>
   </main>
  </div>
