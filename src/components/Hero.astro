@@ -1,11 +1,19 @@
 ---
 ---
-<section class="relative overflow-x-hidden overflow-y-hidden">
- <div class=" absolute top-1/2 w-full">
-  <div class="text-molar translate-y-[-40%] md:translate-y-[-50%] w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
-   <h1 class="drop-shadow-sm heading-1 min-w-[95vw]">Lets grow healthy<br/>smiles together!</h1>
-   <p class="drop-shadow-sm bg-black font-semibold max-w-xs md:max-w-2xl">    From our family to yours, Dr. George and Dr. Chloe are passionate about caring for your child's unique oral health needs.</p>
+<section class="relative overflow-x-hidden overflow-y-hidden bg-black">
+ <div class="absolute top-1/2 w-full z-[1]">
+  <div class="text-white translate-y-[-40%] md:translate-y-[-50%] w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
+   <h1 id="heroh1" class="drop-shadow-sm heading-1 min-w-[95vw]">Lets grow healthy<br/>smiles together!</h1>
+   <p id="herop" class="drop-shadow-sm font-semibold max-w-xs md:max-w-lg">From our family to yours, Dr. George and Dr. Chloe are passionate about caring for your child's unique oral health needs.</p>
   </div>
  </div>
- <img class="h-[45vh] md:h-auto md:max-h-[50vh] w-full object-cover object-right" src="/Flower Hero.svg"/>
+ <img class="opacity-100 h-[45vh] md:h-auto md:max-h-[60vh] w-full object-cover object-right" src="/Flower Hero.svg"/>
 </section>
+<script>
+import { animate, inView } from "motion";
+
+inView("#heroh1", (e) => {
+  animate("#heroh1", { opacity:[0,1],x:[-500,0],skew:[30,0]}, {duration: 0.75})
+  animate("#herop", { opacity:[0,0,1],rotateX:[90,90,0]}, {duration: 1.5})
+})
+</script>

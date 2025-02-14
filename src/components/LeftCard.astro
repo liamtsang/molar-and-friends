@@ -23,36 +23,41 @@
     </svg>
   </svg>
 
-  <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" src="/DerksWorks-0027-20241026-3028820.jpg"/>
-  <a href="/about" class="w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:left-[66.666%] md:translate-x-[25%] px-4 lg:px-6 py-3">
-    About Us
-  </a>
+  <div class="relative rounded-[inherit]">
+    <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" src="/DerksWorks-0027-20241026-3028820.jpg"/>
+    <a href="/about" class="outline-white outline outline-1 hidden w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:block px-4 lg:px-6 py-3">
+      About Us
+    </a>
+  </div>
   <div id="card-content" class="text-nightsky px-6 pt-4 pb-14 md:px-16 md:pt-14 space-y-4 justify-self-center">
     <h2 class="heading-2 break-keep whitespace-nowrap">Hello Friends!</h2>
     <p class="body">
        Molar and Friends Pediatric Dentistry is a family-owned pediatric dental office. Our board-certified pediatric dentists are dedicated to helping your child develop a lifetime of healthy smiles!
     </p>
  </div>
+  <a href="/about" class="w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:hidden px-4 lg:px-6 py-3">
+    About Us
+  </a>
 </div>
 
 <script>
-import { animate } from "motion";
+import { animate, inView } from "motion";
 
 // Set transform origin for the arm
 const armElement = document.querySelector("#tooth-arm");
 armElement.style.transformOrigin = "144px 124px"; // Adjust these coordinates based on where the arm connects
 
 const sequence = [
-  [ "#tooth-arm", { rotate: 5}, { duration: 0.25 } ],
+  [ "#tooth-arm", { rotate: 4}, { duration: 0.25 } ],
   [ "#tooth-arm", { rotate: -5 }, { duration: 0.25 } ],
-  [ "#tooth-arm", { rotate: 5 }, { duration: 0.25 } ],
-  [ "#tooth-arm", { rotate: -5 }, { duration: 0.25 } ],
+  [ "#tooth-arm", { rotate: 4 }, { duration: 0.25 } ],
+  [ "#tooth-arm", { rotate: -4 }, { duration: 0.25 } ],
   [ "#tooth-arm", { rotate: 0 }, { duration: 0.25 } ]
 ];
 
 animate(sequence, {
   repeat: Infinity,
-  repeatDelay: 2
+  repeatDelay: 0.5
 });
 
 // If you still want the initial entrance animation for the whole tooth
@@ -63,13 +68,16 @@ animate("#waving-tooth", {
   duration: 0.25
 });
 
+inView("#left-card", (e) => {
+  animate("#left-card", { opacity: [0,1], scale: [0.9, 1], x: [0, 0], rotateX: [90,0]}, {duration: 0.75})
+})
+
 if (window.innerWidth < 768) {
-animate("#waving-tooth", { 
-  y: "-53%", 
-}, {
-  duration: 0
-});
-  
+  animate("#waving-tooth", { 
+    y: "-53%", 
+  }, {
+    duration: 0
+  });
 }
 
 </script>
