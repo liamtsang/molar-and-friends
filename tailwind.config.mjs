@@ -30,6 +30,8 @@ export default {
 			bubblegum: "#E6BCBB",
 			sunshine: "#EBC34D",
 			molar: "#EDECE6",
+			white: "#FFFFFF",
+			black: "#000000",
 		},
 		extend: {
 			fontFamily: {
