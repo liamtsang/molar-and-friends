@@ -16,11 +16,27 @@ const { bgColor = "#FFFFFF" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Molar and Friends</title>
+		<style is:global>
+			@font-face {
+			  font-family: 'Quirky Spring';
+			  src: url('/fonts/quirky-spring-regular.ttf') format('truetype');
+			}
+			@font-face {
+			  font-family: 'Stonehill Regular';
+			  src: url('/fonts/stonehill-regular.otf') format('opentype');
+			}
+			.font-quirky {
+				font-family: 'Quirky Spring', sans-serif;
+			}
+			.font-stonehill {
+				font-family: 'Stonehill Regular', sans-serif;
+			}
+ 		</style>
 	</head>
-	<body class={`w-dvw min-h-dvh flex flex-col overflow-x-hidden text-molar font-instrument body bg-[#FFFFFF] bg-${bgColor} [transform:translateZ(0)]`}>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
-</html>
+		<body class={`w-dvw min-h-dvh flex flex-col overflow-x-hidden text-molar font-instrument body bg-[#FFFFFF] bg-${bgColor} [transform:translateZ(0)]`}>
+			<Header />
+			<slot />
+			<Footer />
+		</body>
+	</html>
 
