@@ -18,13 +18,43 @@ import Layout from "../layouts/Layout.astro";
   <section class="space-y-32 lg:space-y-48">
     <div class="text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
       <h2 class="heading-2">Our Services</h2>
-      <ul class="body grid grid-cols-3 bg-nightsky gap-[1px] p-[1px] *:p-2 *:text-center">
-        <li class="bg-white">Preventive Care</li>
-        <li class="bg-white">Minimally Invasive Care</li>
-        <li class="bg-white">Restorative Care</li>
-        <li class="bg-white">Emergency Care</li>
-        <li class="bg-white">Dentistry for Children with Special Needs</li>
-        <li class="bg-white">Sedation Dentistry</li>
+      <ul class="body grid grid-cols-2 md:grid-cols-3 p-[1px] *:p-10 md:*:p-16 md:*:text-xl *:font-semibold">
+        <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#517C9F" d="M53.9,-70C69.6,-62.7,82,-46.7,84.8,-29.6C87.6,-12.5,80.7,5.8,72,20.6C63.3,35.5,52.9,47,40.6,54.9C28.3,62.8,14.2,67.1,0.3,66.7C-13.6,66.3,-27.2,61.3,-38.6,53C-49.9,44.8,-59,33.5,-66.9,19.4C-74.8,5.2,-81.4,-11.7,-77.2,-25.2C-73,-38.7,-57.9,-48.8,-43.2,-56.4C-28.5,-64.1,-14.3,-69.2,2.4,-72.5C19.1,-75.8,38.1,-77.2,53.9,-70Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-molar text-center">Preventive Care</div>
+        </li>
+        <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#E16F3E" d="M45,-72.3C57.5,-62,66.2,-48.1,73.8,-33.2C81.4,-18.3,87.8,-2.4,86.8,13.3C85.8,28.9,77.3,44.2,65.9,56.7C54.5,69.1,40.2,78.5,25.7,78.7C11.3,78.8,-3.2,69.7,-17,63.2C-30.8,56.8,-43.9,53.1,-55.6,45.1C-67.3,37.1,-77.6,24.9,-80.7,10.9C-83.8,-3.1,-79.7,-18.8,-71.3,-30.6C-62.9,-42.5,-50.2,-50.4,-37.6,-60.6C-25,-70.8,-12.5,-83.4,1.9,-86.3C16.3,-89.3,32.5,-82.6,45,-72.3Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-center">Minimally Invasive Care</div>
+        </li>
+        <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#42603D" d="M48.3,-68.8C61.5,-56.9,70.4,-41.3,77.4,-24.1C84.3,-6.9,89.4,11.9,83.1,25.7C76.8,39.5,59.1,48.3,43.4,57.3C27.6,66.3,13.8,75.7,-1.4,77.6C-16.7,79.6,-33.3,74.2,-46.4,64.3C-59.4,54.4,-68.8,39.9,-73.8,24.1C-78.7,8.3,-79.3,-8.8,-75.2,-25.4C-71.1,-41.9,-62.4,-57.9,-49.1,-69.7C-35.8,-81.6,-17.9,-89.2,-0.2,-89C17.6,-88.8,35.1,-80.6,48.3,-68.8Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-center text-molar">Restorative Care</div>
+        </li>
+       <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#E6BCBB" d="M43.8,-67.8C55.5,-60.6,62.9,-46.4,71.2,-31.6C79.5,-16.7,88.6,-1.3,89.2,14.7C89.8,30.7,81.8,47.3,69.4,58.5C57.1,69.7,40.5,75.4,24.4,77.6C8.3,79.9,-7.2,78.7,-22.6,75C-38,71.4,-53.3,65.4,-65,54.8C-76.8,44.1,-84.9,28.7,-86.8,12.8C-88.6,-3.2,-84.2,-19.8,-77,-35C-69.8,-50.3,-60,-64.1,-46.7,-70.6C-33.4,-77.1,-16.7,-76.2,-0.3,-75.7C16,-75.2,32.1,-75,43.8,-67.8Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-center">Emergency Care</div>
+        </li>
+       <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#02777C" d="M46.3,-71.9C61.2,-62.4,75.3,-51.6,81,-37.5C86.6,-23.4,83.8,-5.9,80.4,11C77.1,27.8,73.3,44.1,63.6,54.8C53.8,65.5,38,70.6,21.9,76.2C5.7,81.7,-10.8,87.5,-24.5,83.5C-38.2,79.5,-49.1,65.7,-59.3,52.3C-69.5,38.9,-79,25.8,-83.8,10.4C-88.6,-5,-88.7,-22.8,-81.7,-37C-74.8,-51.2,-60.7,-61.8,-45.9,-71.4C-31,-80.9,-15.5,-89.4,0.1,-89.5C15.7,-89.6,31.3,-81.4,46.3,-71.9Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-center text-molar">Dentistry for Children With Special Needs</div>
+        </li>
+       <li class="relative">
+          <svg class="z-[-1] absolute w-full h-full bottom-0 left-0" preserveAspectRatio="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EBC34D" d="M39.8,-61C50.1,-55.2,56,-41.8,63.7,-28.2C71.3,-14.5,80.6,-0.8,82.7,14.6C84.7,30.1,79.5,47.2,68.4,58.1C57.2,69,40.1,73.6,24,75.4C7.9,77.2,-7.1,76.2,-22.9,73.5C-38.6,70.9,-55.2,66.5,-66.8,56.2C-78.5,45.8,-85.4,29.5,-86.1,13.4C-86.9,-2.8,-81.7,-18.8,-73.6,-32.3C-65.4,-45.8,-54.5,-56.7,-41.7,-61.4C-29,-66,-14.5,-64.3,0.1,-64.5C14.7,-64.7,29.4,-66.7,39.8,-61Z" transform="translate(100 100)" />
+          </svg>
+          <div class="text-center">Sedation Dentistry</div>
+        </li>
       </ul>
     </div>
     <div class="text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto ">
