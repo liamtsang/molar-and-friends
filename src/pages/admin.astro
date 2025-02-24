@@ -2,22 +2,49 @@
 import Layout from "../layouts/Layout.astro";
 const { env } = Astro.locals.runtime;
 
-// Fetch all entries from the database
-const { results: entries } = await env.DB.prepare(
-	`SELECT 
-    id,
-    child_name,
-    child_age,
-    insurance,
-    parent_name,
-    email,
-    phone_number,
-    message,
-    submission_date,
-    created_at
-   FROM waitlist 
-   ORDER BY submission_date DESC`,
-).all();
+// Password protection setup
+let isAuthenticated = false;
+let errorMessage = "";
+
+// Check if form was submitted
+if (Astro.request.method === "POST") {
+	try {
+		const formData = await Astro.request.formData();
+		const password = formData.get("password");
+
+		// Simple hardcoded password - replace "admin123" with your desired password
+		if (password === "dimsum") {
+			isAuthenticated = true;
+		} else {
+			errorMessage = "Incorrect password. Please try again.";
+		}
+	} catch (error) {
+		errorMessage = "An error occurred. Please try again.";
+	}
+}
+
+// Only fetch data if authenticated
+let entries = [];
+if (isAuthenticated) {
+	// Fetch all entries from the database
+	const { results } = await env.DB.prepare(
+		`SELECT 
+      id,
+      child_name,
+      child_age,
+      insurance,
+      parent_name,
+      email,
+      phone_number,
+      message,
+      submission_date,
+      created_at
+     FROM waitlist 
+     ORDER BY submission_date DESC`,
+	).all();
+
+	entries = results;
+}
 
 // Format date for display
 const formatDate = (dateString: string) => {
@@ -30,60 +57,98 @@ const formatDate = (dateString: string) => {
 	});
 };
 ---
+
 <Layout bgColor="teal">
   <div class="w-full">
     <main class="text-lg pt-16 font-instrument w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto">
-      <div class="flex justify-between items-center mb-8">
-        <h1 class="font-bold text-3xl">Waitlist Entries</h1>
-        <span class="text-lg">Total Entries: {entries.length}</span>
-      </div>
-
-      <div class="overflow-x-auto bg-nightsky rounded-lg shadow">
-        <table class="w-full table-auto">
-          <thead class="bg-opacity-50 border-b border-molar">
-            <tr>
-              <th class="px-4 py-3 text-left">Submission Date</th>
-              <th class="px-4 py-3 text-left">Child's Name</th>
-              <th class="px-4 py-3 text-left">Age</th>
-              <th class="px-4 py-3 text-left">Insurance</th>
-              <th class="px-4 py-3 text-left">Parent's Name</th>
-              <th class="px-4 py-3 text-left">Email</th>
-              <th class="px-4 py-3 text-left">Phone Number</th>
-              <th class="px-4 py-3 text-left">Message</th>
-            </tr>
-          </thead>
-          <tbody>
-            {entries.map((entry) => (
-              <tr class="border-b border-molar/30 hover:bg-molar/10">
-                <td class="px-4 py-3">{formatDate(entry.submission_date)}</td>
-                <td class="px-4 py-3">{entry.child_name}</td>
-                <td class="px-4 py-3">{entry.child_age}</td>
-                <td class="px-4 py-3">{entry.insurance}</td>
-                <td class="px-4 py-3">{entry.parent_name}</td>
-                <td class="px-4 py-3">
-                  <a 
-                    href={`mailto:${entry.email}`} 
-                    class="text-stoplight hover:underline"
-                  >
-                    {entry.email}
-                  </a>
-                </td>
-                <td class="px-4 py-3">{entry.phone_number}</td>
-                <td class="px-4 py-3">
-                  <div class="max-w-xs truncate" title={entry.message}>
-                    {entry.message || '-'}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {entries.length === 0 && (
-        <div class="text-center py-8 bg-nightsky rounded-lg">
-          <p class="text-xl">No entries found</p>
+      {!isAuthenticated ? (
+        <div class="bg-nightsky rounded-lg shadow p-8 max-w-md mx-auto">
+          <h1 class="font-bold text-3xl mb-6 text-center">Waitlist Admin</h1>
+          <form method="POST" class="space-y-4">
+            <div>
+              <label for="password" class="block mb-2">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required
+                class="w-full px-4 py-2 rounded border border-molar focus:outline-none focus:ring-2 focus:ring-stoplight bg-nightsky/80"
+              />
+            </div>
+            {errorMessage && (
+              <p class="text-red-500">{errorMessage}</p>
+            )}
+            <div>
+              <button 
+                type="submit"
+                class="w-full bg-stoplight hover:bg-stoplight/90 text-nightsky font-bold py-2 px-4 rounded"
+              >
+                Login
+              </button>
+            </div>
+          </form>
         </div>
+      ) : (
+        <>
+          <div class="flex justify-between items-center mb-8">
+            <h1 class="font-bold text-3xl">Waitlist Entries</h1>
+            <span class="text-lg">Total Entries: {entries.length}</span>
+          </div>
+          <div class="overflow-x-auto bg-nightsky rounded-lg shadow">
+            <table class="w-full table-auto">
+              <thead class="bg-opacity-50 border-b border-molar">
+                <tr>
+                  <th class="px-4 py-3 text-left">Submission Date</th>
+                  <th class="px-4 py-3 text-left">Child's Name</th>
+                  <th class="px-4 py-3 text-left">Age</th>
+                  <th class="px-4 py-3 text-left">Insurance</th>
+                  <th class="px-4 py-3 text-left">Parent's Name</th>
+                  <th class="px-4 py-3 text-left">Email</th>
+                  <th class="px-4 py-3 text-left">Phone Number</th>
+                  <th class="px-4 py-3 text-left">Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                {entries.map((entry) => (
+                  <tr class="border-b border-molar/30 hover:bg-molar/10">
+                    <td class="px-4 py-3">{formatDate(entry.submission_date)}</td>
+                    <td class="px-4 py-3">{entry.child_name}</td>
+                    <td class="px-4 py-3">{entry.child_age}</td>
+                    <td class="px-4 py-3">{entry.insurance}</td>
+                    <td class="px-4 py-3">{entry.parent_name}</td>
+                    <td class="px-4 py-3">
+                      <a 
+                        href={`mailto:${entry.email}`} 
+                        class="text-stoplight hover:underline"
+                      >
+                        {entry.email}
+                      </a>
+                    </td>
+                    <td class="px-4 py-3">{entry.phone_number}</td>
+                    <td class="px-4 py-3">
+                      <div class="max-w-xs truncate" title={entry.message}>
+                        {entry.message || '-'}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {entries.length === 0 && (
+            <div class="text-center py-8 bg-nightsky rounded-lg">
+              <p class="text-xl">No entries found</p>
+            </div>
+          )}
+          <div class="mt-6">
+            <a 
+              href={Astro.url.pathname} 
+              class="inline-block bg-molar/70 hover:bg-molar text-white py-2 px-4 rounded"
+            >
+              Logout
+            </a>
+          </div>
+        </>
       )}
     </main>
   </div>
