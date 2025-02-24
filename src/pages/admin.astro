@@ -4,34 +4,35 @@ const { env } = Astro.locals.runtime;
 
 // Fetch all entries from the database
 const { results: entries } = await env.DB.prepare(
-  `SELECT 
+	`SELECT 
     id,
     child_name,
     child_age,
     insurance,
     parent_name,
     email,
+    phone_number,
     message,
     submission_date,
     created_at
    FROM waitlist 
-   ORDER BY submission_date DESC`
+   ORDER BY submission_date DESC`,
 ).all();
 
 // Format date for display
 const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+	return new Date(dateString).toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+		hour: "2-digit",
+		minute: "2-digit",
+	});
 };
 ---
 <Layout bgColor="teal">
   <div class="w-full">
-    <main class="pt-16 font-instrument w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto">
+    <main class="text-lg pt-16 font-instrument w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto">
       <div class="flex justify-between items-center mb-8">
         <h1 class="font-bold text-3xl">Waitlist Entries</h1>
         <span class="text-lg">Total Entries: {entries.length}</span>
@@ -47,6 +48,7 @@ const formatDate = (dateString: string) => {
               <th class="px-4 py-3 text-left">Insurance</th>
               <th class="px-4 py-3 text-left">Parent's Name</th>
               <th class="px-4 py-3 text-left">Email</th>
+              <th class="px-4 py-3 text-left">Phone Number</th>
               <th class="px-4 py-3 text-left">Message</th>
             </tr>
           </thead>
@@ -66,6 +68,7 @@ const formatDate = (dateString: string) => {
                     {entry.email}
                   </a>
                 </td>
+                <td class="px-4 py-3">{entry.phone_number}</td>
                 <td class="px-4 py-3">
                   <div class="max-w-xs truncate" title={entry.message}>
                     {entry.message || '-'}

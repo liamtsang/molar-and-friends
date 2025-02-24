@@ -1,4 +1,6 @@
 -- Schema for waitlist table
+DROP TABLE IF EXISTS waitlist;
+
 CREATE TABLE waitlist (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     child_name TEXT NOT NULL,
@@ -6,6 +8,7 @@ CREATE TABLE waitlist (
     insurance TEXT NOT NULL,
     parent_name TEXT NOT NULL,
     email TEXT NOT NULL,
+    phone_number TEXT NOT NULL,
     message TEXT,
     submission_date TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
