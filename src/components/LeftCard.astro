@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import chloeImg from "../assets/DerksWorks-0027-20241026-3028820.webp"; // Image is 1600x900
 ---
 <div id="left-card" class="bg-sunshine card card-reversed text-left md:max-h-[30rem] rounded-3xl relative">
   <svg 
@@ -24,7 +26,13 @@
   </svg>
 
   <div class="relative rounded-[inherit]">
-    <img id="card-image" class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" src="/DerksWorks-0027-20241026-3028820.jpg"/>
+    <Image 
+      loading="lazy"
+      alt="Dr. Chloe with son Harrison" 
+      id="card-image" 
+      class="max-w-full w-full h-full object-cover justify-self-start max-h-[inherit] rounded-t-[inherit] md:rounded-tl-none md:rounded-r-[inherit]" 
+      src={chloeImg}
+    />
     <a href="/about" class="outline-minty outline outline-1 hidden w-max bg-forest button-text rounded-lg absolute bottom-0 right-[50%] translate-x-[50%] translate-y-[50%] md:block px-4 lg:px-6 py-3">
       About Us
     </a>
