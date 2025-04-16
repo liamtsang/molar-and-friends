@@ -1,11 +1,12 @@
 ---
+import CTAButton from "./CTAButton.astro";
 const currentPath = Astro.url.pathname;
 ---
 
 <div class="drop-shadow-sm sticky top-0 w-full z-[100] bg-[rgba(255,255,255,1.9)]">
  <div 
     id="mobile-menu" 
-    class="md:hidden absolute z-[5] top-[0] left-0 w-dvw bg-[#FFFFFF] shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out"
+    class="xl:hidden absolute z-[5] top-[0] left-0 w-dvw bg-[#FFFFFF] transform -translate-y-full transition-transform duration-300 ease-in-out"
   >
     <nav class="w-[calc((6/7)*100%)] mx-auto flex flex-col py-4 space-y-4">
       <a 
@@ -21,47 +22,75 @@ const currentPath = Astro.url.pathname;
         About
       </a>
       <a 
-        href="/your-first-visit"
-        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/your-first-visit' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+        href="/meet-your-dentists"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/meet-your-dentists' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
       >
-        Your First Visit
+        Meet Your Dentists
       </a>
       <a 
-        href="/waitlist"
-        class="text-lg font-semibold bg-teal text-white px-4 py-2 rounded-full text-center mx-3"
+        href="/meet-your-team"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/meet-your-team' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
       >
-        JOIN WAITLIST
+        Meet Your Team
       </a>
+      <a 
+        href="/your-dental-visit"
+        class={`text-lg text-teal font-semibold transition-all duration-200 ${currentPath === '/your-dental-visit' ? 'border-l-4 border-teal pl-2' : 'border-l-2 border-molar pl-2 hover:border-teal hover:translate-x-[8px]'}`}
+      >
+        Your Dental Visit
+      </a>
+      <a
+        href="/Molar and Friends Referral (Fillable).pdf"
+        target="_none"
+        class="text-center justify-self-end self-center w-full outline outline-teal outline-[1px] text-teal font-bold h-fit px-10 py-3 rounded-full hover:bg-[#F0F0F0] transition-all duration-200">
+        REFERRAL FORM
+      </a>
+      <button
+        onClick="initFlexBook('https://flexbook.me/molarfrnds')"
+        class="justify-self-end self-center w-full bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
+      BOOK NOW
+      </button>
     </nav>
   </div>
-  <header class="relative z-[100] bg-[#FFFFFF] px-[calc((1/14)*100%)] z-[6] md:px-0 md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto h-20 md:h-24 flex flex-cols justify-between gap-0">
+  <header class="relative z-[100] bg-[#FFFFFF] px-[calc((1/14)*100%)] z-[6] md:px-0 md:w-[calc((6/7)*100%)] max-w-[1440px] mx-auto h-20 md:h-24 flex flex-cols justify-between gap-0">
     <div class="flex flex-cols gap-8">
       <a href="/" class="h-20 md:h-24">
         <img class="h-full max-h-full justify-self-start pt-3 pb-3.5" src="/Logo.svg"/>
       </a>
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex text-lg font-semibold text-teal tracking-tight flex-row justify-self-start items-center space-x-4 pr-4">
+      <div class="hidden xl:flex text-lg font-semibold text-teal tracking-tight flex-row justify-self-start items-center space-x-4 pr-4">
         <a href="/" class={`${currentPath==='/' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
           Home
         </a>
         <a href="/about" class={`${currentPath==='/about' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
-          About
+          About Us
         </a>
-        <a href="/your-first-visit" class={`${currentPath==='/your-first-visit' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
-          Your First Visit
+        <a href="/meet-your-dentists" class={`${currentPath==='/meet-your-dentists' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Meet Your Dentists
+        </a>
+        <a href="/meet-your-team" class={`${currentPath==='/meet-your-team' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Meet Your Team
+        </a>
+        <a href="/your-dental-visit" class={`${currentPath==='/your-dental-visit' ? 'border-b-[2px] border-teal' : ''} hover:translate-y-[-4px] hover:border-b-[1px] hover:border-molar duration-100`}>
+          Your Dental Visit
         </a>
       </div>
     </div>
-    <img class="md:hidden lg:block py-4" src="/opening_banner.svg"/>
     <!-- Desktop CTA Button -->
-    <a href="/waitlist" class="hidden md:block justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
-      JOIN WAITLIST
+    <div class="flex flex-row gap-4">
+    <a
+      href="/Molar and Friends Referral (Fillable).pdf"
+      target="_none"
+      class="hidden xl:block justify-self-end self-center outline outline-1 outline-teal text-teal font-bold h-fit px-10 py-3 rounded-full hover:bg-[#F0F0F0] transition-all duration-200">
+      REFERRAL FORM
     </a>
+    <CTAButton/>
+    </div>
     
     <!-- Mobile Navigation Button -->
     <button 
       id="mobile-menu-button"
-      class="md:hidden self-center p-2" 
+      class="xl:hidden self-center p-2" 
       aria-label="Toggle menu"
     >
       <svg 
@@ -95,6 +124,7 @@ const currentPath = Astro.url.pathname;
   /* Add this class to show the menu */
   .menu-open {
     transform: translateY(5rem) !important;
+    box-shadow: 0px 6px 4px rgba(25,25,25,0.1) !important;
   }
 </style>
 

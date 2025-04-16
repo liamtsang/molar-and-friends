@@ -1,60 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const { env } = Astro.locals.runtime;
 
-// Password protection setup
+// Initialize variables with safe defaults
 let isAuthenticated = false;
 let errorMessage = "";
-
-// Check if form was submitted
-if (Astro.request.method === "POST") {
-	try {
-		const formData = await Astro.request.formData();
-		const password = formData.get("password");
-
-		// Simple hardcoded password - replace "admin123" with your desired password
-		if (password === "dimsum") {
-			isAuthenticated = true;
-		} else {
-			errorMessage = "Incorrect password. Please try again.";
-		}
-	} catch (error) {
-		errorMessage = "An error occurred. Please try again.";
-	}
-}
-
-// Only fetch data if authenticated
 let entries = [];
-if (isAuthenticated) {
-	// Fetch all entries from the database
-	const { results } = await env.DB.prepare(
-		`SELECT 
-      id,
-      child_name,
-      child_age,
-      insurance,
-      parent_name,
-      email,
-      phone_number,
-      message,
-      submission_date,
-      created_at
-     FROM waitlist 
-     ORDER BY submission_date DESC`,
-	).all();
 
-	entries = results;
+try {
+	const { env } = Astro.locals.runtime || {};
+
+	// Safely handle form submission
+	if (Astro.request.method === "POST") {
+		try {
+			const formData = await Astro.request.formData();
+			const password = formData.get("password") || "";
+
+			// Simple hardcoded password check
+			if (password === "dimsum") {
+				isAuthenticated = true;
+			} else {
+				errorMessage = "Incorrect password. Please try again.";
+			}
+		} catch (formError) {
+			console.error("Form processing error:", formError);
+			errorMessage =
+				"An error occurred processing your request. Please try again.";
+		}
+	}
+
+	// Only fetch data if authenticated and environment is available
+	if (isAuthenticated && env && env.DB) {
+		try {
+			// Fetch all entries from the database with a timeout
+			const query = `SELECT 
+        id,
+        child_name,
+        child_age,
+        insurance,
+        parent_name,
+        email,
+        phone_number,
+        message,
+        submission_date,
+        created_at
+       FROM waitlist 
+       ORDER BY submission_date DESC`;
+
+			const { results } = await env.DB.prepare(query).all();
+			entries = Array.isArray(results) ? results : [];
+		} catch (dbError) {
+			console.error("Database error:", dbError);
+			errorMessage = "Unable to fetch waitlist data. Please try again later.";
+			entries = [];
+		}
+	}
+} catch (globalError) {
+	console.error("Runtime error:", globalError);
+	errorMessage = "A server error occurred. Please refresh and try again.";
 }
 
-// Format date for display
-const formatDate = (dateString: string) => {
-	return new Date(dateString).toLocaleDateString("en-US", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-		hour: "2-digit",
-		minute: "2-digit",
-	});
+// Format date with fallback for invalid dates
+const formatDate = (dateString) => {
+	try {
+		if (!dateString) return "N/A";
+		return new Date(dateString).toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		});
+	} catch (error) {
+		console.error("Date formatting error:", error);
+		return "Invalid date";
+	}
 };
 ---
 

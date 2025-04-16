@@ -47,7 +47,7 @@ export default {
 					"font-stonehill text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-9xl font-bold leading-[100%] md:leading-[80%] tracking-normal",
 				"heading-2":
 					"font-averia text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-bold tracking-tighter",
-				body: "text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl leading-5 sm:leading-6 md:leading-6 lg:leading-7 xl:leading-8",
+				body: "text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl leading-5 sm:leading-6 md:leading-7 lg:leading-8 xl:leading-9",
 				"button-text":
 					"text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-bold",
 			},

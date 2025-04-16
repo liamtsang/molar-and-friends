@@ -13,6 +13,7 @@ const { bgColor = "#FFFFFF" } = Astro.props;
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="icon" href="/favicon.ico" sizes="32x32">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
 		<meta name="generator" content={Astro.generator} />
@@ -41,3 +42,4 @@ const { bgColor = "#FFFFFF" } = Astro.props;
 		</body>
 	</html>
 
+<script is:global>function closeFlexBook(){var e=document.getElementsByTagName("html")[0];(e=(e=e||document.getElementsByTagName("body")[0])||document.getElementsByTagName("div")[0]).style.width="",e.style.position="",e.style.top="",e.style.overflow="",document.getElementById("flexBook-close").removeEventListener("click",closeFlexBook),document.getElementById("flexBook-Div").remove()}function initFlexBook(e){var t=document.createElement("div");t.setAttribute("id","flexBook-Div"),t.style.height="100vh",t.style.width="100%",t.style.position="absolute",t.style.top="0px",t.style.backgroundColor="rgba(0,0,0,.5)",t.style.zIndex="9999999";var l=document.createElement("button");l.setAttribute("id","flexBook-close"),l.setAttribute("aria-label","Close"),l.style.position="fixed",l.style.top="5px",l.style.right="5px",l.style.background="transparent",l.style.border="1px solid white",l.style.height="25px",l.style.width="35px",l.style.borderRadius="6px",l.style.color="white",l.innerText="✕",l.cursor="pointer",l.addEventListener("click",closeFlexBook);var o=document.createElement("div");o.setAttribute("id","flexBook-Modal"),o.setAttribute("role","dialog"),o.style.height="90vh",o.style.width="99%",o.style.margin="auto",o.style.left=".5%",o.style.top="35px",o.style.background="white",o.style.borderRadius="3px",o.style.position="absolute";var s=document.getElementsByTagName("html")[0];(s=(s=s||document.getElementsByTagName("body")[0])||document.getElementsByTagName("div")[0]).style.width="calc(100% - 0px)",s.style.position="fixed",s.style.top="0px",s.style.overflow="hidden",s.appendChild(t),t.appendChild(l),t.appendChild(o);var i=document.createElement("iframe");i.setAttribute("src",e),i.setAttribute("width","100%"),i.setAttribute("height","100%"),i.setAttribute("frameborder","0"),i.setAttribute("allowfullscreen","1"),i.setAttribute("id","flexbook-iframe"),i.style.borderRadius="5px",o.appendChild(i)}</script>

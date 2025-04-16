@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
   <section class="pt-20 pt:h-24 pb-32 sm:pb-40 md:pb-52 lg:pb-72 xl:pb-[30rem] relative bg-forest text-center">
     <div class="w-full">
       <div class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8">
-        <h1 class="drop-shadow-sm heading-1 ">Your First Visit</h1>
+        <h1 class="drop-shadow-sm heading-1 ">Your Dental Visit</h1>
         <p class="drop-shadow-sm font-semibold mx-auto max-w-xs md:max-w-2xl">
           As your local pediatric dentists, we love meeting new families and introducing your child to a positive dental experience. We offer comprehensive pediatric dental care for children of all ages and will work alongside your family to ensure your child feels safe, supported, and confident at every visit. 
         </p>
@@ -97,10 +97,12 @@ import Layout from "../layouts/Layout.astro";
         We strive to deliver the best care at the most reasonable cost, and our team will work with you to ensure you are informed about all payment expectations. It is important to note that our relationship is with you and not directly with your insurance provider.  You are responsible for understanding your dental insurance policy and for any portion that is not covered by your insurance. Payment is due at the time services are rendered unless prior arrangements have been made. We accept major credit cards and cash payments.    
       </p>
     </div>
-    <div class="text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto ">
-      <a href="/waitlist" class="mb-24 block w-fit text-center mx-auto bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
-        JOIN WAITLIST
-      </a>
+    <div class="pb-36 flex items-center justify-center w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto ">
+      <button
+        onClick="initFlexBook('https://flexbook.me/molarfrnds')"
+        class="max-auto justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
+      BOOK NOW
+      </button>
     </div>
   </section>
 </Layout>

@@ -1,0 +1,180 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section class="pt-20 pt:h-24 pb-32 md:pb-52 lg:pb-72 relative bg-blueberry text-center">
+    <div class="w-full">
+      <div
+        class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8"
+      >
+        <h1 class="drop-shadow-sm heading-1">Meet Your Team</h1>
+      </div>
+    </div>
+  </section>
+  <section class="max-w-dvw pb-44 md:pb-64 lg:pb-96 overflow-x-clip overflow-y-visible">
+    <div
+      class="relative mx-auto w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px]"
+    >
+      <img
+        id="fairy_poster"
+        src="/fairy_poster.png"
+        class="z-[5] w-[40%] drop-shadow-lg absolute"
+      />
+      <img
+        id="lost_poster"
+        src="/lost_poster.png"
+        class="w-[40%] drop-shadow-lg absolute"
+      />
+    </div>
+  </section>
+  <section class="pb-24 lg:pb-32">
+    <div
+      id="our_story"
+      class="flex flex-col lg:flex-row gap-8 md:gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1440px] mx-auto"
+    >
+      <div
+        id="our_story_left"
+        class="flex justify-center lg:justify-end items-center"
+      >
+        <img src="/pirate.png" class="rounded-lg min-w-[300px]"/>
+      </div>
+      <div id="our_story_right" class="lg:max-w-[800px]">
+        <h2 class="heading-2 pb-4">Courtney Evans, EFDA<h2>
+        <div class="space-y-3">
+          <p class="body">
+          Lead Dental Assitant
+          </p>
+          <p class="body">
+          (Picture coming soon)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button
+    onClick="initFlexBook('https://flexbook.me/molarfrnds')"
+    class="mt-12 mb-36 justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
+  BOOK NOW
+  </button>
+ </Layout>
+
+<script>
+  import { animate, inView, press } from "motion";
+  let george_card_state = "closed";
+  let chloe_card_state = "closed";
+
+  inView("#fairy_poster", (e) => {
+    animate(
+      "#fairy_poster",
+      {
+        rotate: -2,
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        y: ["-40%"],
+        left: ["100%", "52%"],
+      },
+      { duration: 0.75 }
+    );
+    animate(
+      "#lost_poster",
+      {
+        rotate: 5,
+        opacity: [0, 1],
+        scale: [0.8, 1],
+        y: ["-50%"],
+        right: ["100%", "52%"],
+      },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#our_story", (e) => {
+    animate(
+      "#our_story_left",
+      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#our_story_right",
+      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#george", (e) => {
+    animate(
+      "#card_george_left",
+      { opacity: [1], scale: [1], rotate: [-1], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card2_george_right",
+      { opacity: [1], scale: [1], rotate: [-2], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card1_george_right",
+      { opacity: [1], scale: [0.98], rotate: [3], x: ["100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  inView("#chloe", (e) => {
+    animate(
+      "#card_chloe_right",
+      { opacity: [1], scale: [1], rotate: [1], x: ["100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card2_chloe_left",
+      { opacity: [1], scale: [1], rotate: [2], x: ["100%", "0"] },
+      { duration: 0.75 }
+    );
+    animate(
+      "#card1_chloe_left",
+      { opacity: [1], scale: [0.98], rotate: [-3], x: ["-100%", "0"] },
+      { duration: 0.75 }
+    );
+  });
+
+  press("#card_george_stack", (e) => {
+    if (george_card_state === "closed") {
+      animate(
+        "#card2_george_right",
+        { scale: [1], x: [0, "120%"] },
+        { duration: 0.75 }
+      );
+      animate("#card1_george_right", { scale: [0.98, 1] }, { duration: 0.75 });
+      george_card_state = "open";
+    } else {
+      animate(
+        "#card2_george_right",
+        { scale: [1], x: ["120%", 0] },
+        { duration: 0.75 }
+      );
+      animate("#card1_george_right", { scale: [1, 0.98] }, { duration: 0.75 });
+      george_card_state = "closed";
+    }
+  });
+
+  press("#card_chloe_stack", (e) => {
+    if (chloe_card_state === "closed") {
+      animate(
+        "#card2_chloe_left",
+        { scale: [1], x: [0, "-120%"] },
+        { duration: 0.75 }
+      );
+      animate("#card1_chloe_left", { scale: [0.98, 1] }, { duration: 0.75 });
+      chloe_card_state = "open";
+    } else {
+      animate(
+        "#card2_chloe_left",
+        { scale: [1], x: ["-120%", 0] },
+        { duration: 0.75 }
+      );
+      animate("#card1_chloe_left", { scale: [1, 0.98] }, { duration: 0.75 });
+      chloe_card_state = "closed";
+    }
+  });
+</script>
