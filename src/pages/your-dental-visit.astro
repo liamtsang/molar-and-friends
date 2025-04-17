@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CTAButton from "../components/CTAButton.astro";
 ---
 <Layout>
   <section class="pt-20 pt:h-24 pb-32 sm:pb-40 md:pb-52 lg:pb-72 xl:pb-[30rem] relative bg-forest text-center">
@@ -97,12 +98,8 @@ import Layout from "../layouts/Layout.astro";
         We strive to deliver the best care at the most reasonable cost, and our team will work with you to ensure you are informed about all payment expectations. It is important to note that our relationship is with you and not directly with your insurance provider.  You are responsible for understanding your dental insurance policy and for any portion that is not covered by your insurance. Payment is due at the time services are rendered unless prior arrangements have been made. We accept major credit cards and cash payments.    
       </p>
     </div>
-    <div class="pb-36 flex items-center justify-center w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto ">
-      <button
-        onClick="initFlexBook('https://flexbook.me/molarfrnds')"
-        class="max-auto justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
-      BOOK NOW
-      </button>
+    <div class="flex items-center justify-center w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto ">
+      <CTAButton/>
     </div>
   </section>
 </Layout>

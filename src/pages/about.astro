@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CTAButton from "../components/CTAButton.astro";
 ---
 
 <Layout>
-  <section class="pt-20 pt:h-24 pb-32 md:pb-32 lg:pb-32 relative bg-blueberry text-center">
+  <section
+    class="pt-20 pt:h-24 pb-32 md:pb-32 lg:pb-32 relative bg-blueberry text-center"
+  >
     <div class="w-full">
       <div
         class="text-molar w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto space-y-4 md:space-y-8"
@@ -12,16 +15,12 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="pt-24 pb-24 lg:pb-32">
-    <div
-      id="our_story"
-      class="flex flex-col lg:flex-row gap-8 md:gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
-    >
-      <div
-        id="our_story_left"
-        class="flex justify-center lg:justify-end items-center"
-      >
-        <img src="/family.png" class="rounded-lg min-w-[300px]"/>
+  <section
+    class="pt-24 pb-12 w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto flex justify-center"
+  >
+    <div class="flex flex-col lg:flex-row gap-8 md:gap-16 text-nightsky">
+      <div class="flex justify-center lg:justify-end items-center">
+        <img src="/family.png" class="rounded-lg min-w-[300px]" />
       </div>
       <div id="our_story_right" class="lg:max-w-[800px]">
         <h2 class="heading-2 pb-4">Our Story</h2>
@@ -34,64 +33,85 @@ import Layout from "../layouts/Layout.astro";
             We first met as dental students at the Harvard School of Dental
             Medicine while coordinating the school's annual Give Kids a Smile
             event. What started as a friendship grew into a relationship that
-            was built on our shared passion for life-long learning, oral
-            health education, community engagement, and caring for children
-            and families. We grew up on opposite coasts, met in Boston, fell
-            in love, and now call Central Ohio our home.
+            was built on our shared passion for life-long learning, oral health
+            education, community engagement, and caring for children and
+            families. We grew up on opposite coasts, met in Boston, fell in
+            love, and now call Central Ohio our home.
           </p>
           <p class="body">
-            When not taking care of our patients, we are exploring restaurants 
-            and cafes around town, chasing our toddler around the kitchen island,
-            and taking long walks in our neighborhood with our two dogs. 
+            When not taking care of our patients, we are exploring restaurants
+            and cafes around town, chasing our toddler around the kitchen
+            island, and taking long walks in our neighborhood with our two dogs.
           </p>
         </div>
       </div>
     </div>
   </section>
- <section class="pt-12 pb-12">
+
+  <section
+    class="pt-12 pb-12 w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto flex justify-center"
+  >
     <div
       id="our_story"
-      class="gap-8 md:gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
+      class="flex flex-col lg:flex-row gap-8 md:gap-16 text-nightsky"
     >
-      <h2 class="heading-2 pb-6">Our Mission</h2>
-      <div class="space-y-3">
+      <div id="our_story_right" class="min-w-[35ch] lg:max-w-[800px]">
+        <h2 class="heading-2 pb-6">Our Mission</h2>
+        <div class="space-y-3">
+          <p class="body">
+            At Molar and Friends Pediatric Dentistry, we are passionate about
+            taking care of our kids and their teeth! We specialize in treating
+            kids of all backgrounds and unique circumstances. Whether your child
+            has dental anxiety, extra questions about how to keep their teeth
+            strong, special health care needs, or just looking for a happy visit
+            to the dentist, we will take the time to ensure that all their needs
+            are met. We want your child's dental visit to be an experience that
+            they can look forward to. It is our mission to make your child's
+            visit safe, fun, and educational!
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex justify-center lg:justify-start items-center h-full max-h-full max-w-[36rem]"
+      >
+        <img
+          src="/M+F_Canvases_Space_PR-1.png"
+          class="rounded-lg h-full max-h-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="pt-12 pb-12 w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto flex justify-center"
+  >
+    <div
+      id="our_story"
+      class="flex flex-col lg:flex-row gap-8 md:gap-16 text-nightsky"
+    >
+      <div
+        class="flex justify-center lg:justify-end items-center h-full max-h-full w-full max-w-[24rem]"
+      >
+        <img
+          src="/M+F_Canvases_No-Cavities_PR-1.png"
+          class="rounded-lg h-full max-h-full object-cover"
+        />
+      </div>
+      <div class="space-y-3 min-w-[35ch] lg:max-w-[800px]">
+        <h2 class="heading-2 pb-6">Our Office</h2>
         <p class="body">
-          At Molar and Friends Pediatric Dentistry, we are passionate about taking care of our kids and their teeth!  We specialize in treating kids of all backgrounds and unique circumstances. Whether your child has dental anxiety, extra questions about how to keep their teeth strong, special health care needs, or just looking for a happy visit to the dentist, we will take the time to ensure that all their needs are met. We want your child's dental visit to be an experience that they can look forward to. It is our mission to make your child's visit safe, fun, and educational!
+          We've designed our office to be a fun, comfortable, and safe place for
+          your child to call their dental home. Our art was conceptualized by
+          Dr. George and Dr. Chloe and illustrated by the talented team of
+          Imaginary Beast. Dr. George grew up on comics like Calvin and Hobbes
+          and believes that connecting fun imagery to oral health makes
+          dentistry exciting for children. Dr. Chloe is an amateur artist and is
+          a strong believer in using art for play and education.
         </p>
       </div>
     </div>
   </section>
- <section class="pt-12 pb-12">
-    <div
-      id="our_story"
-      class="gap-8 md:gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
-    >
-      <h2 class="heading-2 pb-6">Our Practice Name</h2>
-      <div class="space-y-3">
-        <p class="body">
-          The name "Molar and Friends" was born from our philosophy that when we treat our teeth as friends, we are more motivated to take care of them. When our teeth are cared for, they will take care of us back! As silly as this may sound, we find the philosophy memorable and helpful in maintaining a healthy mouth. Our practice is strongly rooted in prevention and education. We enjoy taking the time to teach our patients and families about the best ways to prevent cavities and gum disease.
-        </p>
-      </div>
-    </div>
-  </section>
- <section class="pt-12 pb-12">
-    <div
-      id="our_story"
-      class="gap-8 md:gap-16 text-nightsky w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] mx-auto"
-    >
-      <h2 class="heading-2 pb-6">Our Office</h2>
-      <div class="space-y-3">
-        <p class="body">
-          We've designed our office to be a fun, comfortable, and safe place for your child to call their dental home. Our art was conceptualized by Dr. George and Dr. Chloe and illustrated by the talented team of Imaginary Beast.  Dr. George grew up on comics such as Calvin and Hobbes and Garfield, and he believes that connecting fun imagery and graphics to oral health makes dentistry exciting and inviting for children. Dr. Chloe is an amateur artist and is a strong believer in using art for play and education.
-        </p>
-      </div>
-    </div>
-  </section>
-  <button
-    onClick="initFlexBook('https://flexbook.me/molarfrnds')"
-    class="mt-24 mb-36 justify-self-end self-center bg-teal text-[#FFFFFF] font-bold h-fit px-10 py-3 rounded-full hover:bg-nightsky transition-all duration-200">
-  BOOK NOW
-  </button>
+  <CTAButton />
 </Layout>
 
 <script>
@@ -120,19 +140,6 @@ import Layout from "../layouts/Layout.astro";
         y: ["-50%"],
         right: ["100%", "52%"],
       },
-      { duration: 0.75 }
-    );
-  });
-
-  inView("#our_story", (e) => {
-    animate(
-      "#our_story_left",
-      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
-      { duration: 0.75 }
-    );
-    animate(
-      "#our_story_right",
-      { opacity: [0, 1], scale: [0.8, 1], x: ["-100%", "0"] },
       { duration: 0.75 }
     );
   });
@@ -215,7 +222,7 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-.body {
-  max-width: 55ch;
-}
+  .body {
+    max-width: 55ch;
+  }
 </style>

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import LeftCard from "../components/LeftCard.astro";
 import RightCard from "../components/RightCard.astro";
+import CTAButton from "../components/CTAButton.astro";
 ---
 
 <Layout>
@@ -11,11 +12,7 @@ import RightCard from "../components/RightCard.astro";
 		<section class="flex flex-col items-center w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1024px] mx-auto gap-12 md:space-y-24 mt-10 md:mt-24">
 			<LeftCard/>
 			<RightCard/>
-		  <button
-	    onClick="initFlexBook('https://flexbook.me/molarfrnds')"
-	    class="mt-16 block bg-stoplight text-[#FFFFFF] font-bold w-fit h-fit px-10 py-3 rounded-full hover:bg-cedar">
-	    BOOK NOW
-		  </button>
-		</section>
+			<CTAButton/>
+		  </section>
 	</div>
 </Layout>
