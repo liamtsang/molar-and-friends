@@ -1,5 +1,9 @@
 ---
-
+import { Image } from "astro:assets";
+import ADA from "../assets/ADA badge(1).png";
+import AAPD from "../assets/AAPD_Transparent.png";
+import GAC from "../assets/GAC badge.png";
+import ABPD from "../assets/ABPD-DiplomateBadge-Transparent (1).png";
 ---
 
 <footer
@@ -97,17 +101,9 @@
   <div
     class="overflow-hidden mt-12 flex md:flex-row max-h-8 md:max-h-16 justify-between w-[calc((6/7)*100%)] md:w-[calc((5/7)*100%)] max-w-[1200px] mx-auto"
   >
-    <img
-      sizes="auto"
-      class="object-contain mix-blend-multiply"
-      src="/AAPD_Transparent.png"
-    />
-    <img sizes="auto" class="object-contain" src="/ADA badge(1).png" />
-    <img sizes="auto" class="object-contain" src="/GAC badge.png" />
-    <img
-      sizes="auto"
-      class="object-contain"
-      src="/ABPD-DiplomateBadge-Transparent (1).png"
-    />
+    <Image widths={[40,200]} src={AAPD} alt="AAPD Logo" class="max-w-[75px] lg:max-w-[300px] object-contain mix-blend-multiply"/>
+    <Image widths={[40,200]} src={ADA} alt="ADA Logo" class="max-w-[75px] lg:max-w-[300px] object-contain"/>
+    <Image widths={[40,200]} src={GAC} alt="GAC Logo" class="max-w-[75px] lg:max-w-[300px] object-contain"/>
+    <Image widths={[40,200]} src={ABPD} alt="ABPD Logo" class="max-w-[75px] lg:max-w-[300px] object-contain"/>
   </div>
 </footer>
